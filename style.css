@@ -792,7 +792,7 @@ a {
 ------------------------------------------------------------- */
 .icon-arrow {
   position: absolute;
-  top: 50%;
+  top: 50%; 
   font-size: 2em;
   color: var(--dark-color);
   z-index: 8;
