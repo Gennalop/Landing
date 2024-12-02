@@ -1,4 +1,4 @@
-const databaseURL = 'https://proyecto-82ab3-default-rtdb.firebaseio.com/collection.json';
+const databaseURL = 'https://landing-funsel-default-rtdb.firebaseio.com/collection.json';
 
 let sendData = () => {
     // Obtén los datos del formulario
@@ -50,11 +50,8 @@ let getData = async () => {
 
             if (Object.keys(data).length > 0) {
                 for (let key in data) {
-
                     let { email, saved } = data[key]
-
                     let date = saved.split(",")[0]
-
                     let count = countSuscribers.get(date) || 0;
                     countSuscribers.set(date, count + 1)
                 }
