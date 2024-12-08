@@ -93,29 +93,38 @@ let loaded = () => {
     let myform = document.getElementById('form');
     myform.addEventListener('submit', function (eventSubmit) {
         eventSubmit.preventDefault();
-        var emailElement = document.querySelector(".form-control-lg");
-        var emailText = emailElement.value;
-        if (emailText.length === 0) {
-            emailElement.focus()
-            emailElement.animate(
-                [
-                    { transform: "translateX(0)" },
-                    { transform: "translateX(50px)" },
-                    { transform: "translateX(-50px)" },
-                    { transform: "translateX(0)" }
-                ],
-                {
-                    duration: 400,
-                    easing: "linear",
-                    //iterations: 1,                          // Número de iteraciones
-                    //fill: 'forwards'  
-                }
-            )
+        var formElement = document.querySelectorAll(".form-control-lg");
+        var email = formElement[1];
+        var name = formElement[0];
+        
+        if (name.value.length === 0) {
+            applyShakeAnimation(name);
+            return;
+        }
+    
+        if (email.value.length === 0) {
+            applyShakeAnimation(email);
             return;
         }
 
         sendData();
     })
+}
+
+let applyShakeAnimation = (element) => {
+    element.focus();
+    element.animate(
+        [
+            { transform: "translateX(0)" },
+            { transform: "translateX(50px)" },
+            { transform: "translateX(-50px)" },
+            { transform: "translateX(0)" }
+        ],
+        {
+            duration: 400,
+            easing: "linear",
+        }
+    );
 }
 
 window.addEventListener("DOMContentLoaded", ready);
